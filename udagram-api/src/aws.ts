@@ -1,9 +1,17 @@
 import AWS = require("aws-sdk");
 import { config } from "./config/config";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 // Configure AWS
 const credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
 AWS.config.credentials = credentials;
+
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESSKEYID,
+  secretAccessKey: process.env.AWS_SECRETACCESSKEY
+});
 
 export const s3 = new AWS.S3({
   signatureVersion: "v4",
