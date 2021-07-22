@@ -1,1 +1,1 @@
-eb init --platform node.js-12 --region us-east-1 Udagram-env && eb status
+eb init --platform node.js-14 --region us-east-1 Udagram && eb status
