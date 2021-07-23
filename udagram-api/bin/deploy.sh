@@ -1,1 +1,1 @@
-echo "\ndeploy:\n  artifact: www/Archive.zip" >> .elasticbeanstalk/config.yml && eb deploy --staged
+eb deploy --staged
