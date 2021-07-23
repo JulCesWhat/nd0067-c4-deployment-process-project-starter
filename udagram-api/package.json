@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-init": "chmod +x ./bin/init.sh && ./bin/init.sh",
     "set-env": "chmod +x ./bin/env.sh && ./bin/env.sh",
-    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
+    "deploy": " npm install && npm run build && chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
