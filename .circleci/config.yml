@@ -11,13 +11,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
         - node/install
-        - eb/setup
-        - aws-cli/setup
         - checkout
-        - run:
-            name: Set EB environment
-            command: |
-              npm run backend:init
         - run:
             name: Front-End Install
             command: |
@@ -34,12 +28,34 @@ jobs:
             name: Back-End Build
             command: |
               npm run backend:build
-        - run:
-            name: Deploy App
-            command: |
-              npm run frontend:deploy
-        - run:
-            name: Deploy API
-            command: |
-              npm run backend:deploy
+
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - eb/setup
+      - aws-cli/setup
+      - checkout
+      - run:
+          name: Set EB environment
+          command: |
+            npm run backend:start-init
+      - run:
+          name: Set EB environment variables
+          command: |
+            npm run backend:set-env
+      - run:
+          name: Deploy App
+          command: |
+            npm run frontend:deploy
+      - run:
+          name: Deploy API
+          command: |
+            npm run backend:deploy
+workflows:
+  udagram:
+    jobs:
+      - build
+      - deploy
 

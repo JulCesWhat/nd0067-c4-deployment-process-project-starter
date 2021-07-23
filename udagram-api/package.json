@@ -11,7 +11,8 @@
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init": "chmod +x ./bin/init.sh && ./bin/init.sh",
+    "start-init": "chmod +x ./bin/init.sh && ./bin/init.sh",
+    "set-env": "chmod +x ./bin/env.sh && ./bin/env.sh",
     "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "keywords": [],
