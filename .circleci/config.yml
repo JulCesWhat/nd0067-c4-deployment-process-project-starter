@@ -57,5 +57,14 @@ workflows:
   udagram:
     jobs:
       - build
-      - deploy
-
+      - Deployment Trigger:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - Deployment Trigger
