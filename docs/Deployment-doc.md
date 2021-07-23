@@ -10,6 +10,8 @@
 3. The UI is hosted in S3.
 4. The Api server is avaiable with AWS Elastic Beanstalk.
 
+![Infrastructure AWS](./images/infrastructure.png)
+
 
 ## Pipeline process
 1. The application code is sent to Github
@@ -17,6 +19,7 @@
 3. Circle CI builds the project and deploys it to AWS
 4. AWS allows to host the server and displays it to the users.
 
+![Pipeline process AWS](./images/pipeline.png)
 
 ## App dependencies
 - NodeJS
